@@ -15,19 +15,18 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if(computerSelection === "paper" && playerSelection === "rock") {
-        console.log("You lose! paper beats rock");
+        return "You lose! paper beats rock";
     } else if(computerSelection === "paper" && playerSelection === "scissor") {
-        console.log("You win! scissor beats paper");
+        return "You win! scissor beats paper";
     } else if(computerSelection === "scissor" && playerSelection === "paper") {
-        console.log("You lose! scissor beats paper");
+        return "You lose! scissor beats paper";
     } else if(computerSelection === "scissor" && playerSelection === "rock") {
-        console.log("You win! rock beats scissor");
+        return "You win! rock beats scissor";
     } else if(computerSelection === "rock" && playerSelection === "scissor") {
-        console.log("You lose! rock beats scissor");
+        return "You lose! rock beats scissor";
     } else if(computerSelection === "rock" && playerSelection === "paper") {
-        console.log("You win! paper beats rock");
+        return "You win! paper beats rock";
     }
-    return;
 }
 
 const playerSelection = "paper";
