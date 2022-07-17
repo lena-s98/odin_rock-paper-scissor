@@ -1,4 +1,15 @@
 The computer puts out a random number.
 The random number should be from 0 to 2. So there are three numbers.
-The numbers are declared in variables named rock, paper and scissor.
-The console puts out the name of the variable according to the random number.
+The numbers are compared and either return rock, paper or scissor.
+The function outputs the name the string according to the number.
+
+The playRound() compares the input of the user.
+If the computer wins a lose message will be displayed accordingly.
+if the user wins a win message will be displayed.
+If it's a tie, the console will display a tie.
+
+The game() function allows to play 5 rounds of rock, paper, scissor.
+
+There will be an if function to compare the score of the computer and user each round.
+For this there needs to be a loop for each round increasing the score of the winner in each round.
+When the player or computer reach a score of 5 the game ends.
