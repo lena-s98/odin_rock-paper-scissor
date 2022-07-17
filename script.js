@@ -26,6 +26,8 @@ function playRound(playerSelection, computerSelection) {
         return "You lose! rock beats scissor";
     } else if(computerSelection === "rock" && playerSelection === "paper") {
         return "You win! paper beats rock";
+    } else if(computerSelection === playerSelection) {
+        return "It's a tie!";
     } else {
         alert("Please enter a valid response!");
     }
@@ -39,7 +41,7 @@ function game() {
 
 // Global variables
 
-const playerSelection = prompt("Rock, Paper or Scissor!");
+const playerSelection = prompt("Rock, Paper or Scissor!").toLowerCase();
 const computerSelection = getComputerChoice();
 
 let playerScore = 0;
