@@ -1,54 +1,48 @@
-const playerSelection = prompt("Rock, Paper or Scissor!").toLowerCase();
+let playerSelection = prompt("Rock, Paper or Scissor!").toLowerCase();
 const computerSelection = getComputerChoice();
+
 let playerScore = 0;
 let computerScore = 0;
-let playGame = playRound(playerSelection, computerSelection);
-//let gamesPlayed = 0;
+let roundwinner = "";
 
 // Function to get the computers choice
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random()*3);
-    if(randomNumber === 0) {
-        return "rock";
-    } else if(randomNumber === 1) {
-        return "paper";
-    } else {
-        return "scissor";
+    switch (randomNumber) {
+        case 0:
+            return "rock";
+        case 1:
+            return "paper";
+        case 2:
+            return "scissor";
+
     }
 }
 
 // Function to play one round
 
 function playRound(playerSelection, computerSelection) {
-    if(computerSelection === "paper" && playerSelection === "rock") {
-        return "Computer wins";
-    } else if(computerSelection === "paper" && playerSelection === "scissor") {
-        return "Player wins";
-    } else if(computerSelection === "scissor" && playerSelection === "paper") {
-        return "Computer wins";
-    } else if(computerSelection === "scissor" && playerSelection === "rock") {
-        return "Player wins";
-    } else if(computerSelection === "rock" && playerSelection === "scissor") {
-        return "Computer wins";
-    } else if(computerSelection === "rock" && playerSelection === "paper") {
-        return "Player wins";
+    if((computerSelection === "paper" && playerSelection === "rock") || (computerSelection === "scissor" && playerSelection === "paper") || (computerSelection === "rock" && playerSelection === "scissor")){
+        computerScore++;
+        roundwinner = "computer";
+    } else if((computerSelection === "paper" && playerSelection === "scissor") || (computerSelection === "scissor" && playerSelection === "rock") || (computerSelection === "rock" && playerSelection === "paper")) {
+        playerScore++;
+        roundwinner = "player";
     } else if(computerSelection === playerSelection) {
-        return "It's a tie!";
-    } else {
-        alert("Please enter a valid response!");
+        roundwinner = "tie";
     }
 }
 
 // Function to increase the score
 
-function increaseScore() {
-    if(playGame === "Computer wins") {
-        computerScore++;
-    } else if(playGame === "Player wins") {
+/*function increaseScore() {
+    if(roundwinner === "computer") {
         playerScore++;
+    } else if(roundwinner === "player") {
+        computerScore++;
     }
-}
+}*/
 
 // Function to determine and showcase the winner
 
@@ -65,9 +59,8 @@ function determineWinner() {
 function game() {
     for(let gamesPlayed = 0; gamesPlayed < 5; gamesPlayed++) {
         playRound(playerSelection, computerSelection);
-        increaseScore();
-        determineWinner();
-        console.log(playGame);
+        console.log(playRound());
+        console.log(roundwinner);
     }
 }
 console.log(game());
