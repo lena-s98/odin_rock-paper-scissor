@@ -1,32 +1,36 @@
+// Function to get the computers choice
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random()*3);
     if(randomNumber === 0) {
-        return "ROCK";
+        return "rock";
     } else if(randomNumber === 1) {
-        return "PAPER";
+        return "paper";
     } else {
-        return "SCISSOR";
+        return "scissor";
     }
 }
 
+// Function to play one round
+
 function playRound(playerSelection, computerSelection) {
-    if(computerSelection === "PAPER" && playerSelection === "rock") {
-        console.log("You lose! Paper beats Rock");
-    } else if(computerSelection === "PAPER" && playerSelection === "scissor") {
-        console.log("You win!");
-    } else if(computerSelection === "SCISSOR" && playerSelection === "paper") {
-        console.log("You lose! Scissor beats Paper");
-    } else if(computerSelection === "SCISSOR" && playerSelection === "rock") {
-        console.log("You win!");
-    } else if(computerSelection === "ROCK" && playerSelection === "scissor") {
-        console.log("You lose! Rock beats Scissor");
-    } else if(computerSelection === "ROCK" && playerSelection === "paper") {
-        console.log("You win!");
+    if(computerSelection === "paper" && playerSelection === "rock") {
+        console.log("You lose! paper beats rock");
+    } else if(computerSelection === "paper" && playerSelection === "scissor") {
+        console.log("You win! scissor beats paper");
+    } else if(computerSelection === "scissor" && playerSelection === "paper") {
+        console.log("You lose! scissor beats paper");
+    } else if(computerSelection === "scissor" && playerSelection === "rock") {
+        console.log("You win! rock beats scissor");
+    } else if(computerSelection === "rock" && playerSelection === "scissor") {
+        console.log("You lose! rock beats scissor");
+    } else if(computerSelection === "rock" && playerSelection === "paper") {
+        console.log("You win! paper beats rock");
     }
     return;
 }
 
-const playerSelection = "rock";
+const playerSelection = "paper";
 const computerSelection = getComputerChoice();
+
 console.log(playRound(playerSelection, computerSelection));

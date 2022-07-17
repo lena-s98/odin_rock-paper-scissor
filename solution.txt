@@ -1,0 +1,4 @@
+The computer puts out a random number.
+The random number should be from 0 to 2. So there are three numbers.
+The numbers are declared in variables named rock, paper and scissor.
+The console puts out the name of the variable according to the random number.
