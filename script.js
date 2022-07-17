@@ -26,10 +26,24 @@ function playRound(playerSelection, computerSelection) {
         return "You lose! rock beats scissor";
     } else if(computerSelection === "rock" && playerSelection === "paper") {
         return "You win! paper beats rock";
+    } else {
+        alert("Please enter a valid response!");
     }
 }
 
-const playerSelection = "paper";
+// Function to play 5 games
+
+function game() {
+
+}
+
+// Global variables
+
+const playerSelection = prompt("Rock, Paper or Scissor!");
 const computerSelection = getComputerChoice();
+
+let playerScore = 0;
+let computerScore = 0;
+let gamesPlayed = 0;
 
 console.log(playRound(playerSelection, computerSelection));
