@@ -19,6 +19,8 @@ function computerChoice() {
     }
 }
 
+console.log(computerSelection);
+
 // This function will play one round of rock, paper, scissor in the console.
 // It will take the players choice and the random computers choice then compare them with eachother.
 // After the comparison it will declare a winner depending on the comparison.
@@ -40,8 +42,24 @@ function playOneRound(playerSelection, computerSelection) {
     }
 }
 
+// This function increases the score.
+function increaseScore(playerScore, computerScore) {
+    if(result === "It's a tie") {
+        console.log(playerScore, computerScore);
+    } else if(result === "You win!") {
+        ++playerScore;
+        console.log(playerScore, computerScore);
+    } else if(result === "The computer wins") {
+        ++computerScore;
+        console.log(playerScore, computerScore);
+    }
+}
+
+console.log(playOneRound(playerSelection, computerSelection));
+console.log(increaseScore(playerScore, computerScore));
+
 // This function asks for a new prompt anytime it's called.
-function resetSelection() {
+function resetPlayerSelection() {
     playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
 }
 
@@ -49,10 +67,6 @@ function resetSelection() {
 function game() {
     for(let i = 1; i <= 5; i++) {
         playOneRound(playerSelection, computerSelection);
-        resetSelection();
+        resetPlayerSelection();
     }
 }
-//console.log(playOneRound(playerSelection, computerSelection));
-//console.log(declareWinner(result));
-//onsole.log(result);
-//console.log(declareWinner(result));
