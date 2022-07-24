@@ -1,66 +1,58 @@
-let playerSelection = prompt("Rock, Paper or Scissor!").toLowerCase();
-const computerSelection = getComputerChoice();
-
+let playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
+let computerSelection = computerChoice();
+let result = playOneRound(playerSelection, computerSelection);
 let playerScore = 0;
 let computerScore = 0;
-let roundwinner = "";
 
-// Function to get the computers choice
 
-function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random()*3);
-    switch (randomNumber) {
+// This function generates a random number between 0 and 2.
+// Then it declares rock, paper or scissor depending on the number.
+function computerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3);
+    switch(randomNumber) {
         case 0:
             return "rock";
         case 1:
             return "paper";
         case 2:
             return "scissor";
-
     }
 }
 
-// Function to play one round
-
-function playRound(playerSelection, computerSelection) {
-    if((computerSelection === "paper" && playerSelection === "rock") || (computerSelection === "scissor" && playerSelection === "paper") || (computerSelection === "rock" && playerSelection === "scissor")){
-        computerScore++;
-        roundwinner = "computer";
-    } else if((computerSelection === "paper" && playerSelection === "scissor") || (computerSelection === "scissor" && playerSelection === "rock") || (computerSelection === "rock" && playerSelection === "paper")) {
-        playerScore++;
-        roundwinner = "player";
-    } else if(computerSelection === playerSelection) {
-        roundwinner = "tie";
+// This function will play one round of rock, paper, scissor in the console.
+// It will take the players choice and the random computers choice then compare them with eachother.
+// After the comparison it will declare a winner depending on the comparison.
+function playOneRound(playerSelection, computerSelection) {
+    if(playerSelection === computerSelection) {
+        return "It's a tie";
+    } else if((playerSelection === "rock" && computerSelection === "scissor")) {
+        return "You win!";
+    } else if((playerSelection === "scissor" && computerSelection === "paper")) {
+        return "You win!";
+    } else if((playerSelection === "paper" && computerSelection === "rock")) {
+        return "You win!";
+    } else if((computerSelection === "rock" && playerSelection === "scissor")) {
+        return "The computer wins";
+    } else if((computerSelection === "scissor" && playerSelection === "paper")) {
+        return "The computer wins";
+    } else if((computerSelection === "paper" && playerSelection === "rock")) {
+        return "The computer wins";
     }
 }
 
-// Function to increase the score
-
-/*function increaseScore() {
-    if(roundwinner === "computer") {
-        playerScore++;
-    } else if(roundwinner === "player") {
-        computerScore++;
-    }
-}*/
-
-// Function to determine and showcase the winner
-
-function determineWinner() {
-    if(computerScore === 5) {
-        console.log("The computer has won the game!");
-    } else if(playerScore === 5) {
-        console.log("You have won the game!");
-    }
+// This function asks for a new prompt anytime it's called.
+function resetSelection() {
+    playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
 }
 
-// Function to play 5 games
-
+// This function will loop the game 5 times.
 function game() {
-    for(let gamesPlayed = 0; gamesPlayed < 5; gamesPlayed++) {
-        playRound(playerSelection, computerSelection);
-        console.log(playRound());
-        console.log(roundwinner);
+    for(let i = 1; i <= 5; i++) {
+        playOneRound(playerSelection, computerSelection);
+        resetSelection();
     }
 }
-console.log(game());
+//console.log(playOneRound(playerSelection, computerSelection));
+//console.log(declareWinner(result));
+//onsole.log(result);
+//console.log(declareWinner(result));
