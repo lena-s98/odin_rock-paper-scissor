@@ -49,6 +49,14 @@ function playOneRound(playerSelection, computerSelection) {
 function resetPlayerSelection() {
   playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
 }
+
+// Eventlistener for the playerselection buttons
+const playerButtons = document.querySelectorAll('button');
+playerButtons.forEach((button) => button.addEventListener('click', () => {
+  playerSelection = button.value;
+  console.log(playerSelection);
+}))
+
 //---Die Reset-Funktion hätte ich als solches nicht gebraucht. Es reicht eine leere Variable, die
 //in der Loop geupdatet wird---
 
@@ -70,7 +78,6 @@ function resetPlayerSelection() {
 //   } //---Die if Funktion, die die Punkte vergleicht musste außerhalb der Loop stehen. Dann hat alles funktioniert ^-^ ---
 //}
 
-console.log(game());
 console.log(
   `Your score is ${playerScore} and the computer's score is ${computerScore}`
 );
