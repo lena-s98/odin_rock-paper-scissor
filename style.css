@@ -1,22 +1,24 @@
-*, *::before, *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-  width: 75%;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+	width: 75%;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .btn {
-  font-size: 4rem;
-  margin: 1rem 2rem;
-  cursor: pointer;
+	font-size: 4rem;
+	margin: 1rem 2rem;
+	cursor: pointer;
 }
 
-.results {
-  border: 2px solid red;
+.results > h2 {
+	margin: 2rem auto;
 }
