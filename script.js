@@ -69,9 +69,9 @@ function playOneRound(playerSelection, computerSelection) {
 }
 
 function determineWinner() {
-	if ((playerScore = 5)) {
+	if (playerScore === 5) {
 		gameWinner.textContent = "You win the game!";
-	} else if ((computerScore = 5)) {
+	} else if (computerScore === 5) {
 		gameWinner.textContent = "You lose the game.";
 	}
 }
