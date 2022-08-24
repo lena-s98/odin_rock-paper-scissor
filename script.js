@@ -93,6 +93,9 @@ playerButtons.forEach((button) =>
 	})
 );
 
+restartButton.addEventListener("click", () => {
+	location.reload();
+});
 // This function asks for a new prompt anytime it's called.
 // function resetPlayerSelection() {
 //   playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
