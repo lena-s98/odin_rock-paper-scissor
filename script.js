@@ -68,7 +68,7 @@ function resetPlayerSelection() {
 //   } else {
 //     return "It's a tie";
 //   } //---Die if Funktion, die die Punkte vergleicht musste außerhalb der Loop stehen. Dann hat alles funktioniert ^-^ ---
-}
+//}
 
 console.log(game());
 console.log(
