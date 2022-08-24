@@ -24,6 +24,10 @@ resultsContainer.appendChild(computerScoreTitle);
 const gameWinner = document.createElement("h1");
 resultsContainer.appendChild(gameWinner);
 
+const restartButton = document.createElement("button");
+restartButton.classList.add("restart-btn");
+restartButton.textContent = "Restart The Game";
+
 // This function generates a random number between 0 and 2.
 // Then it declares rock, paper or scissor depending on the number.
 function computerChoice() {
@@ -71,8 +75,12 @@ function playOneRound(playerSelection, computerSelection) {
 function determineWinner() {
 	if (playerScore === 5) {
 		gameWinner.textContent = "You win the game!";
+		playerButtons.forEach((button) => (button.style.display = "none"));
+		resultsContainer.appendChild(restartButton);
 	} else if (computerScore === 5) {
 		gameWinner.textContent = "You lose the game.";
+		playerButtons.forEach((button) => (button.style.display = "none"));
+		resultsContainer.appendChild(restartButton);
 	}
 }
 
