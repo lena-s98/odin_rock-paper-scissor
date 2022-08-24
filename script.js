@@ -1,7 +1,6 @@
-let playerSelection = "";
-let computerSelection = computerChoice();
-let playerScore = 0;
-let computerScore = 0;
+var playerSelection = '';
+var playerScore = 0;
+var computerScore = 0;
 const win = "You win this round";
 const lose = "You lose this round";
 const tie = "It's a tie";
@@ -20,10 +19,21 @@ function computerChoice() {
   }
 }
 
+
+// Eventlistener for the playerselection buttons
+const playerButtons = document.querySelectorAll('button');
+playerButtons.forEach((button) => button.addEventListener('click', playOneRound));
+
 // This function will play one round of rock, paper, scissor in the console.
 // It will take the players choice and the random computers choice then compare them with eachother.
 // After the comparison it will declare a winner depending on the comparison.
 function playOneRound(playerSelection, computerSelection) {
+  //Computerchoice gets called and stored in the computerSelection variable.
+  computerChoice();
+  var computerSelection = computerChoice();
+
+  console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}`)
+
   if (playerSelection === computerSelection) {
     return tie;
   } else if (
@@ -50,12 +60,7 @@ function resetPlayerSelection() {
   playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
 }
 
-// Eventlistener for the playerselection buttons
-const playerButtons = document.querySelectorAll('button');
-playerButtons.forEach((button) => button.addEventListener('click', () => {
-  playerSelection = button.value;
-  console.log(playerSelection);
-}))
+
 
 //---Die Reset-Funktion hätte ich als solches nicht gebraucht. Es reicht eine leere Variable, die
 //in der Loop geupdatet wird---
