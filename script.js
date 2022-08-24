@@ -3,13 +3,15 @@ var playerSelection = "";
 var playerScore = 0;
 var computerScore = 0;
 
-const resultsContainer = document.querySelector(".results");
+const playerButtons = document.querySelectorAll("button");
 
-const roundResult = document.createElement("h3");
-resultsContainer.appendChild(roundResult);
+const resultsContainer = document.querySelector(".results");
 
 var choiceDisplay = document.createElement("h2");
 resultsContainer.appendChild(choiceDisplay);
+
+const roundResult = document.createElement("h3");
+resultsContainer.appendChild(roundResult);
 
 const playerScoreTitle = document.createElement("h2");
 playerScoreTitle.textContent = ` Your score is: ${playerScore}`;
@@ -19,7 +21,7 @@ const computerScoreTitle = document.createElement("h2");
 computerScoreTitle.textContent = ` The computers score is: ${computerScore}`;
 resultsContainer.appendChild(computerScoreTitle);
 
-const gameWinner = document.createElement("p");
+const gameWinner = document.createElement("h1");
 resultsContainer.appendChild(gameWinner);
 
 // This function generates a random number between 0 and 2.
@@ -66,12 +68,20 @@ function playOneRound(playerSelection, computerSelection) {
 	}
 }
 
+function determineWinner() {
+	if ((playerScore = 5)) {
+		gameWinner.textContent = "You win the game!";
+	} else if ((computerScore = 5)) {
+		gameWinner.textContent = "You lose the game.";
+	}
+}
+
 // Eventlistener for the playerselection buttons
-const playerButtons = document.querySelectorAll("button");
 playerButtons.forEach((button) =>
 	button.addEventListener("click", () => {
 		playerSelection = button.value;
 		playOneRound(playerSelection, computerSelection);
+		determineWinner();
 	})
 );
 
