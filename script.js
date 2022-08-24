@@ -1,3 +1,4 @@
+var computerSelection = '';
 var playerSelection = '';
 var playerScore = 0;
 var computerScore = 0;
@@ -19,10 +20,12 @@ function computerChoice() {
   }
 }
 
-
 // Eventlistener for the playerselection buttons
 const playerButtons = document.querySelectorAll('button');
-playerButtons.forEach((button) => button.addEventListener('click', playOneRound));
+playerButtons.forEach((button) => button.addEventListener('click', () => {
+  playerSelection = button.value;
+  console.log(playOneRound(playerSelection, computerSelection));
+}));
 
 // This function will play one round of rock, paper, scissor in the console.
 // It will take the players choice and the random computers choice then compare them with eachother.
@@ -30,8 +33,7 @@ playerButtons.forEach((button) => button.addEventListener('click', playOneRound)
 function playOneRound(playerSelection, computerSelection) {
   //Computerchoice gets called and stored in the computerSelection variable.
   computerChoice();
-  var computerSelection = computerChoice();
-
+  computerSelection = computerChoice();
   console.log(`You chose ${playerSelection} and the computer chose ${computerSelection}`)
 
   if (playerSelection === computerSelection) {
