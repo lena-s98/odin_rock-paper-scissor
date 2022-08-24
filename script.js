@@ -6,6 +6,16 @@ const win = "You win this round";
 const lose = "You lose this round";
 const tie = "It's a tie";
 
+const resultsContainer = document.querySelector('.results');
+
+const playerScoreTitle = document.createElement('h2');
+playerScoreTitle.textContent = ` Your score is: ${playerScore}`;
+resultsContainer.appendChild(playerScoreTitle);
+
+const computerScoreTitle = document.createElement('h2');
+computerScoreTitle.textContent = ` The computers score is: ${computerScore}`;
+resultsContainer.appendChild(computerScoreTitle);
+
 // This function generates a random number between 0 and 2.
 // Then it declares rock, paper or scissor depending on the number.
 function computerChoice() {
@@ -58,9 +68,9 @@ function playOneRound(playerSelection, computerSelection) {
 }
 
 // This function asks for a new prompt anytime it's called.
-function resetPlayerSelection() {
-  playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
-}
+// function resetPlayerSelection() {
+//   playerSelection = prompt("Type rock, paper or scissor").toLowerCase();
+// }
 
 
 
